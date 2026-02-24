@@ -1,0 +1,11 @@
+from django.shortcuts import render, redirect, get_object_or_404
+from .models import Author, Post, Tag, About
+
+
+
+def home_page(request):
+    post = Post.objects.all().order_by('-id')
+    context = {
+        'posts': post
+    }
+    return render(request, 'index.html', context)

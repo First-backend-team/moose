@@ -9,3 +9,11 @@ def home_page(request):
         'posts': post
     }
     return render(request, 'index.html', context)
+
+
+def article_page(request):
+    post = Post.objects.all()
+    context = {
+        'posts': post
+    }
+    return render(request, 'blog.html', context)

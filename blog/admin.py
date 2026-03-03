@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Author, About, Tag, Post
+from .models import Author, About, Tag, Post, Comment
 # Register your models here.
 
 @admin.register(Post)
@@ -23,3 +23,8 @@ class TagAdmin(admin.ModelAdmin):
 class AuthorAdmin(admin.ModelAdmin):
     list_display = ('id', 'full_name', 'created_at')
     list_display_links = ('id', 'full_name')
+
+@admin.register(Comment)
+class CommentAdmin(admin.ModelAdmin):
+    list_display = ('id', 'post_id', 'name', 'created_at')
+    list_display_links = ('id', 'name')
